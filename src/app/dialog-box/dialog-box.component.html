@@ -1,0 +1,41 @@
+<div class="container">
+    <h3 mat-dialog-title>Applicant : {{data.A}}</h3>
+    <br/>
+    <form class="mat-dialog-content" (ngSubmit)="submit()" #formControl="ngForm">
+  
+      <div class="form">
+        <mat-form-field color="accent">
+          <input matInput #input class="form-control" placeholder="First Name" [(ngModel)]="data.A" name="FirstName" required>
+          <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+  
+      
+      <div class="form">
+        <mat-form-field color="accent">
+          <input matInput #input class="form-control" placeholder="Last Name" [(ngModel)]="data.B" name="LastName" required >
+          <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+  
+      <div class="form">
+        <mat-form-field color="accent">
+          <input matInput #inputstate class="form-control" placeholder="Date" [(ngModel)]="data.C" name="Date" required >
+          <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+         
+         
+        </mat-form-field>
+      </div>
+  
+      <div class="form">
+        <mat-form-field color="accent">
+          <input matInput #inputstate class="form-control" placeholder="Status" [(ngModel)]="data.D" name="Status" required >
+          <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+      </div>
+      <div mat-dialog-actions>
+        <button mat-raised-button mdbBtn color="accent" rounded="true" size="sm" type="button" [disabled]="!formControl.valid" [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+        <button mat-raised-button mdbBtn color="accent" rounded="true" size="sm" type="button" [mat-dialog-close]="null" cdkFocusInitial>Cancel</button>
+      </div>
+    </form>
+  </div>
